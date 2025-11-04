@@ -12,6 +12,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import javax.security.auth.Destroyable;
+import java.math.MathContext;
 
 public class TankKillService implements Destroyable {
     private static final String QUARTZ_GROUP = TankKillService.class.getName();
@@ -128,5 +129,19 @@ public class TankKillService implements Destroyable {
     private synchronized void giveDamage(BattlePlayerController target, int damage) {
         target.tank.health -= damage;
         changeHealth(target, target.tank.health);
+    }
+
+    public void healTank(BattlePlayerController attacker, BattlePlayerController target) {
+        int damage = attacker.tank.weapon.calculateDamage(target.tank);
+        target.tank.health = Math.min(target.tank.health + damage, Tank.MAX_HEALTH);
+        changeHealth(target, target.tank.health);
+    }
+
+    public void hitTank(BattlePlayerController attacker, BattlePlayerController target, float powerMul) {
+        int damage = attacker.tank.weapon.calculateDamage(target.tank);
+        damage = (int) (damage * powerMul);
+        giveDamage(target, damage);
+        if (target.tank.health <= 0)
+            killTank(target, attacker);
     }
 }

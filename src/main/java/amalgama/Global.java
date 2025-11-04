@@ -57,6 +57,7 @@ public class Global {
         hulls_config.put("ufo", mapper.readValue(Paths.get("files\\hulls\\ufo.json").toFile(), HullModificationModel[].class));
         turrets_config.put("smoky", mapper.readValue(Paths.get("files\\weapons\\smoky.json").toFile(), TurretModificationModel[].class));
         turrets_config.put("flamethrower", mapper.readValue(Paths.get("files\\weapons\\flamethrower.json").toFile(), TurretModificationModel[].class));
+        turrets_config.put("flamethrowerhw", mapper.readValue(Paths.get("files\\weapons\\flamethrowerhw.json").toFile(), TurretModificationModel[].class));
         turrets_config.put("twins", mapper.readValue(Paths.get("files\\weapons\\twins.json").toFile(), TurretModificationModel[].class));
         turrets_config.put("railgun", mapper.readValue(Paths.get("files\\weapons\\railgun.json").toFile(), TurretModificationModel[].class));
         turrets_config.put("isida", mapper.readValue(Paths.get("files\\weapons\\isida.json").toFile(), TurretModificationModel[].class));
@@ -152,7 +153,7 @@ public class Global {
         ret.withoutBonuses = b.noBonus;
         ret.userAlreadyPaid = false;
         ret.fullCash = false;
-        ret.spectator = false;
+        ret.spectator = true;
 
         return ret;
     }

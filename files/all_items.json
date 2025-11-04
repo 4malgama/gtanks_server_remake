@@ -523,6 +523,47 @@
   {
     "modification": [
       {
+        "previewId": "flamethrowerhw_m0",
+        "price": 5,
+        "rank": 1,
+        "properts": [
+          {
+            "property": "damage_per_second",
+            "value": "24 - 32"
+          },
+          {
+            "property": "cone_angle",
+            "value": "20"
+          },
+          {
+            "property": "turret_turn_speed",
+            "value": "95"
+          },
+          {
+            "property": "shot_range",
+            "value": "20"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "flamethrowerhw",
+    "description": "Хеллоуинская версия огненного искусства.",
+    "isInventory": false,
+    "index": 11,
+    "type": 1,
+    "name": "Пламя Хеллоуина",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": -1,
+    "rank": 1,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
         "previewId": "twins_m0",
         "price": 10,
         "rank": 5,
@@ -2425,7 +2466,40 @@
         "previewId": "spectr_m0",
         "price": -1,
         "rank": 1,
-        "properts": []
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "5"
+          },
+          {
+            "property": "fire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "5"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "5"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "5"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "5"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "5"
+          }
+        ]
       }
     ],
     "modificationID": 0,
@@ -2727,6 +2801,1122 @@
     "next_rank": 0,
     "price": -1,
     "rank": 1,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "blizzard_m0",
+        "price": 1000,
+        "rank": 7,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "20"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "blizzard",
+    "description": "Защита от пушек:\nОгнемёт - 20%\nТвинс - 10%\n\nЭта краска разработана специально для боёв на заснеженных картах и в условиях повышенной видимости. Лопата для самооткапывания танка из снега в комплект не входит по экономическим причинам.",
+    "isInventory": false,
+    "index": 69,
+    "type": 3,
+    "name": "Метель",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 1000,
+    "rank": 7,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "safari_m0",
+        "price": 1000,
+        "rank": 7,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "5"
+          },
+          {
+            "property": "fire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "safari",
+    "description": "Защита от пушек:\nСмоки - 5%\nОгнемёт - 5%\nРельса - 10%\n\nЛюбители пощекотать себе нервы на сафари придумали весьма эффективный способ привлекать к себе хищников. Маскировка танка под невинную зебру отлично подходит для охоты с противотанковым вооружением как на африканских хищников, так и на не очень умных танкистов.",
+    "isInventory": false,
+    "index": 70,
+    "type": 3,
+    "name": "Сафари",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 1000,
+    "rank": 7,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "foreign_m0",
+        "price": 1000,
+        "rank": 7,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "10"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "15"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "foreign",
+    "description": "Защита от пушек:\nСмоки 10%\nТвинс - 15%\n\nСуществует легенда, что этот камуфляж копирует окраску летающей тарелки, в прошлом веке сбитой ПВО сами-знаете-кого сами-знаете-где.",
+    "isInventory": false,
+    "index": 70,
+    "type": 3,
+    "name": "Чужой",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 1000,
+    "rank": 7,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "tundra_m0",
+        "price": 3000,
+        "rank": 8,
+        "properts": [
+          {
+            "property": "plasma_resistance",
+            "value": "5"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "18"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "tundra",
+    "description": "Защита от пушек:\nТвинс - 5%\nРельса - 18%\n\nОдна из немногих по-настоящему стильных камуфляжных красок. Текстура сурова и по-мужски проста. Делает танк менее заметным на поле боя.",
+    "isInventory": false,
+    "index": 71,
+    "type": 3,
+    "name": "Тундра",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 3000,
+    "rank": 8,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "dragon_m0",
+        "price": 3000,
+        "rank": 8,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "36"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "15"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "5"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "dragon",
+    "description": "Защита от пушек:\nОгнемёт - 36%\nТвинс - 15%\nИзида - 5%\n\nПрототипом при создании этой сложной композитной окраски послужила чешуя драконов, каждая чешуйка рисуется вручную на усиленной титановыми пластинами броне.",
+    "isInventory": false,
+    "index": 72,
+    "type": 3,
+    "name": "Дракон",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 3000,
+    "rank": 8,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "roger_m0",
+        "price": 3000,
+        "rank": 8,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "20"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "22"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "5"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "roger",
+    "description": "Защита от пушек:\nСмоки - 20%\nТвинс - 22%\nРельса - 5%\n\nГлавный пиратский символ всех времён, теперь впервые и на твоём танке.",
+    "isInventory": false,
+    "index": 73,
+    "type": 3,
+    "name": "Роджер",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 3000,
+    "rank": 8,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "digital_m0",
+        "price": 8000,
+        "rank": 9,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "20"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "25"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "digital",
+    "description": "Защита от пушек:\nСмоки - 20%\nРельса - 25%\n\nЭто не просто краска, это настоящий защитный комплекс. В его состав входят покраска особой стойкости, имеющая повышенные камуфлирующие свойства, и специальные наноботы для автоматической самоочистки краски в любых условиях боя.",
+    "isInventory": false,
+    "index": 74,
+    "type": 3,
+    "name": "Диджитал",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 8000,
+    "rank": 9,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "jaguar_m0",
+        "price": 8000,
+        "rank": 9,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "10"
+          },
+          {
+            "property": "fire_resistance",
+            "value": "40"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "26"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "5"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "jaguar",
+    "description": "Защита от пушек:\nСмоки - 10%\nОгнемёт - 40%\nТвинс - 26%\nРельса - 5%\nИзида - 5%\nГром - 10%\n\nВручную подогнанная под ваш танк шкура благородного хищника. Окрас истинного охотника.",
+    "isInventory": false,
+    "index": 75,
+    "type": 3,
+    "name": "Ягуар",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 8000,
+    "rank": 9,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "electra_m0",
+        "price": 8000,
+        "rank": 9,
+        "properts": [
+          {
+            "property": "plasma_resistance",
+            "value": "30"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "5"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "30"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "electra",
+    "description": "Защита от пушек:\nТвинс - 30%\nРельса - 5%\nИзида - 30%\nФриз - 10%\n\nОдна из самых красивых красок, разработанная при участии модельных домов Франции. «Электра» имеет хорошие камуфлирующие свойства и эстетичный внешний вид. К сожалению, не все способны по достоинству оценить изящество линий и глубину работы французских мастеров.",
+    "isInventory": false,
+    "index": 76,
+    "type": 3,
+    "name": "Электра",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 8000,
+    "rank": 9,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "surf_m0",
+        "price": 2000,
+        "rank": 11,
+        "properts": []
+      }
+    ],
+    "modificationID": 0,
+    "id": "surf",
+    "description": "Формула покрытия «Прибой» была похищена из секретной лаборатории под кодовым названием «Аква», специализирующейся на генетических экспериментах над рыбами. Благодаря особым теплоотражающим свойствам краска придаёт воздуху внутри танка морскую свежесть",
+    "isInventory": false,
+    "index": 77,
+    "type": 3,
+    "name": "Прибой",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 2000,
+    "rank": 11,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "mary_m0",
+        "price": 2000,
+        "rank": 10,
+        "properts": []
+      }
+    ],
+    "modificationID": 0,
+    "id": "mary",
+    "description": "Покрытый кроваво-красными пятнами танк должен нагонять жути на противника, вселяя в него первобытный ужас. Хотя умудрённые опытом танкисты знают, что на корпусе вовсе не кровь, а брызги томатного сока. Недаром же краска называется «Мэри».",
+    "isInventory": false,
+    "index": 78,
+    "type": 3,
+    "name": "Мэри",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 2000,
+    "rank": 10,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "khokhloma_m0",
+        "price": 2000,
+        "rank": 10,
+        "properts": []
+      }
+    ],
+    "modificationID": 0,
+    "id": "khokhloma",
+    "description": "Изначально краска «Хохлома» создавалась исключительно для экспорта. Ею покрывались танки, продававшиеся за рубеж, дабы подчеркнуть исконно русское происхождение боевой техники. Теперь «Хохлому» можно достать и на внутреннем рынке, а в конструкторских бюро, по слухам, уже создаётся проект танка-матрёшки.",
+    "isInventory": false,
+    "index": 79,
+    "type": 3,
+    "name": "Хохлома",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 2000,
+    "rank": 10,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "rust_m0",
+        "price": 5000,
+        "rank": 11,
+        "properts": [
+          {
+            "property": "plasma_resistance",
+            "value": "15"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "20"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "rust",
+    "description": "Защита от пушек:\nТвинс - 15%\nГром - 20%\nРикошет - 10%\n\nАнтипафос, антигламур и вызов моде! Кровавая ржавчина — выбор суровых танкистов, презирающих лоск и блеск. Полученная путём окисления металлической стружки в ванночках с кровью, эта краска говорит о брутальности и твёрдости характера танкиста.",
+    "isInventory": false,
+    "index": 80,
+    "type": 3,
+    "name": "Ржавчина",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 5000,
+    "rank": 11,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "storm_m0",
+        "price": 5000,
+        "rank": 11,
+        "properts": [
+          {
+            "property": "rail_resistance",
+            "value": "10"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "5"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "30"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "storm",
+    "description": "Защита от пушек:\nРельса - 10%\nГром - 5%\nФриз - 30%\n\nОтличная маскировка для секретных ночных операций. В условиях слабой освещённости эта текстура делает танк совершенно неразличимым в сумраке.",
+    "isInventory": false,
+    "index": 81,
+    "type": 3,
+    "name": "Буря",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 5000,
+    "rank": 11,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "clay_m0",
+        "price": 5000,
+        "rank": 12,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "25"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "10"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "20"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "clay",
+    "description": "Защита от пушек:\nОгнемёт - 25%\nИзида - 5%\nФриз - 10%\nРикошет - 20%\n\nЛучший способ отвести вражеский взгляд от своего танка — заляпать его грязью. Однако естественная грязь весьма неустойчива — легко смывается водой и даже отваливается пластами в жаркую погоду. Чтобы придать танку нужный «грязный» цвет, было разработано покрытие «Глина». В его состав включены отходы керамического производства лучших китайских гончарных мастерских.",
+    "isInventory": false,
+    "index": 82,
+    "type": 3,
+    "name": "Глина",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 5000,
+    "rank": 12,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "rustle_m0",
+        "price": 12000,
+        "rank": 10,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "20"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "20"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "25"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "20"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "rustle",
+    "description": "Защита от пушек:\nСмоки - 20%\nИзида - 20%\nГром - 25%\nФриз - 20%\n\nТанки не боятся ни жары, ни мороза, поэтому сражения бушуют круглый год. А значит, танкистам требуется маскировка не только для разной местности, но и для всех сезонов. Этот окрас поможет слиться с палой листвой и подосиновиками в осеннем лесу. При условии, что вам удастся заехать на танке в лес...",
+    "isInventory": false,
+    "index": 83,
+    "type": 3,
+    "name": "Шелест",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 12000,
+    "rank": 10,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "python_m0",
+        "price": 12000,
+        "rank": 12,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "30"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "15"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "40"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "python",
+    "description": "Защита от пушек:\nОгнемёт - 30%\nИзида - 15%\nФриз - 40%\nРикошет - 10%\n\nПокрытие «Питон» — это не стилизация под змеиную шкуру, а цельная кожа настоящего питона. Покрытие ею танка производится по хитроумной технологии: камбоджийского гигантского питона морят голодом, а затем подсовывают ему обмазанный свиным жиром танк. Змея глотает его целиком, всё лишнее отрезается.",
+    "isInventory": false,
+    "index": 84,
+    "type": 3,
+    "name": "Питон",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 12000,
+    "rank": 12,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "python_m0",
+        "price": 12000,
+        "rank": 12,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "30"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "15"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "40"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "python",
+    "description": "Защита от пушек:\nОгнемёт - 30%\nИзида - 15%\nФриз - 40%\nРикошет - 10%\n\nПокрытие «Питон» — это не стилизация под змеиную шкуру, а цельная кожа настоящего питона. Покрытие ею танка производится по хитроумной технологии: камбоджийского гигантского питона морят голодом, а затем подсовывают ему обмазанный свиным жиром танк. Змея глотает его целиком, всё лишнее отрезается.",
+    "isInventory": false,
+    "index": 85,
+    "type": 3,
+    "name": "Питон",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 12000,
+    "rank": 12,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "spark_m0",
+        "price": 12000,
+        "rank": 12,
+        "properts": [
+          {
+            "property": "plasma_resistance ",
+            "value": "20"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "15"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "10"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "30"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "spark",
+    "description": "Защита от пушек:\nТвинс - 20%\nРельса - 15%\nГром - 10%\nРикошет - 30%\n\nФеерия света, каскад огней, музыка сфер — это уникальное покрытие можно описывать разными словами, но ни одно из них не отразит полностью его глубину. «Искру» выбирают танкисты, для которых танк — не просто боевая машина, но средство самовыражения.",
+    "isInventory": false,
+    "index": 86,
+    "type": 3,
+    "name": "Искра",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 12000,
+    "rank": 12,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "taiga_m0",
+        "price": 7000,
+        "rank": 13,
+        "properts": [
+          {
+            "property": "rail_resistance ",
+            "value": "18"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "15"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "5"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "taiga",
+    "description": "Защита от пушек:\nРельса - 18%\nГром - 15%\nРикошет - 5%\n\nКамуфляжное покрытие «Тайга» так хорошо маскирует танк в густой растительности, что на нём даже можно охотиться на лосей. Пугливое животное не замечает угрозу и подходит к боевой машине вплотную. Впрочем, на месте лося может оказаться и другой танкист...",
+    "isInventory": false,
+    "index": 87,
+    "type": 3,
+    "name": "Тайга",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 7000,
+    "rank": 13,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "standstone_m0",
+        "price": 7000,
+        "rank": 13,
+        "properts": [
+          {
+            "property": "fire_resistance ",
+            "value": "10"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "20"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "5"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "30"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "standstone",
+    "description": "Защита от пушек:\nОгнемёт - 10%\nТвинс - 20%\nИзида - 5%\nФриз - 30%\n\nПокрытие «Песчаник» сочетает в себе маскирующие свойства песочной раскраски и прочность закалённого ветрами камня. Подарочный комплект «Песчаника» включает в себя купальные плавки или бикини на выбор, солнечные очки и пляжный зонт.",
+    "isInventory": false,
+    "index": 88,
+    "type": 3,
+    "name": "Песчаник",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 7000,
+    "rank": 13,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "kedr_m0",
+        "price": 7000,
+        "rank": 13,
+        "properts": [
+          {
+            "property": "vampire_resistance ",
+            "value": "20"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "25"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "kedr",
+    "description": "Защита от пушек:\nИзида - 20%\nРикошет - 25%\n\nДля создания маскирующего покрытия «Кедр» используется сложный состав на основе толчёных чешуек кедровых шишек. Его неоспоримое достоинство — стопроцентная экологичность производства и два мешка очищенных кедровых орешков в подарок за каждую вторую канистру краски.",
+    "isInventory": false,
+    "index": 89,
+    "type": 3,
+    "name": "Кедр",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 7000,
+    "rank": 13,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "lead_m0",
+        "price": 7000,
+        "rank": 14,
+        "properts": [
+          {
+            "property": "thunder_resistance",
+            "value": "20"
+          },
+          {
+            "property": "shaft_resistance",
+            "value": "40"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "lead",
+    "description": "Защита от пушек:\nГром - 20%\nШафт - 40%\n\nСвинец — самая надёжная защита от излучения, это знали ещё в двадцатом веке. Покрытая свинцовым напылением броня эффективно защищает репродуктивную систему танкиста от радиации, позволяя сохранять бодрость духа даже в самых «горячих» переделках!",
+    "isInventory": false,
+    "index": 90,
+    "type": 3,
+    "name": "Свинец",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 7000,
+    "rank": 14,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "rock_m0",
+        "price": 10000,
+        "rank": 14,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "30"
+          },
+          {
+            "property": "rail_resistance",
+            "value": "10"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "40"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "rock",
+    "description": "Защита от пушек:\nОгнемёт - 30%\nРельса - 10%\nФриз - 40%\n\nБроневые пластины для покрытия «Скала» добываются в скальных массивах по древнеегипетской технологии. Сухие колышки вбиваются в скалу, смачиваются водой, разбухают и откалывают ровные каменные блоки. Этот камуфляж — настоящая ручная работа!",
+    "isInventory": false,
+    "index": 91,
+    "type": 3,
+    "name": "Скала",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 10000,
+    "rank": 14,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "needles_m0",
+        "price": 10000,
+        "rank": 14,
+        "properts": [
+          {
+            "property": "rail_resistance",
+            "value": "10"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "30"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "15"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "needles",
+    "description": "Защита от пушек:\nРельса - 10%\nГром - 30%\nРикошет - 15%\n\nДля производства одной банки краски «Хвоя», изготовленной на основе иголочек хвойных деревьев, вырубается 25 квадратных метров молодого ельника. Но каждый снайпер знает, что хвойная присыпка — лучший способ маскировки!",
+    "isInventory": false,
+    "index": 92,
+    "type": 3,
+    "name": "Хвоя",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 10000,
+    "rank": 14,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "tina_m0",
+        "price": 10000,
+        "rank": 14,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "20"
+          },
+          {
+            "property": "fire_resistance",
+            "value": "10"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "10"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "30"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "tina",
+    "description": "Защита от пушек:\nСмоки - 20%\nОгнемёт - 10%\nИзида - 10%\nРикошет - 30%\n\nКраска под кодовым названием «Тина» разрабатывалась для диверсионных танковых бригад, действующих в болотистой местности. Танки маскировались настолько хорошо, что даже пиявки не замечали их и на полном ходу врезались в бронированный корпус.",
+    "isInventory": false,
+    "index": 93,
+    "type": 3,
+    "name": "Тина",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 10000,
+    "rank": 14,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "irbis_m0",
+        "price": 10000,
+        "rank": 14,
+        "properts": [
+          {
+            "property": "vampire_resistance",
+            "value": "20"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "10"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "irbis",
+    "description": "Защита от пушек:\nИзида - 20%\nРикошет - 10%\n\nОдно из самых загадочных животных семейства кошачьих — ирбис, он же снежный барс. Исследователи многих стран безуспешно пытаются поймать живого ирбиса для детального изучения, но пока это удалось лишь нашим инженерам-биологам. После серии рискованных экспериментов и пятнадцати несчастных случаев они представили краску «Ирбис». Покрытие содержит ДНК снежного барса, что делает его абсолютно уникальным и в какой-то степени даже экологичным.",
+    "isInventory": false,
+    "index": 94,
+    "type": 3,
+    "name": "Ирбис",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 10000,
+    "rank": 14,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "inferno_m0",
+        "price": 15000,
+        "rank": 15,
+        "properts": [
+          {
+            "property": "rail_resistance",
+            "value": "20"
+          },
+          {
+            "property": "freeze_resistance",
+            "value": "50"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "inferno",
+    "description": "Защита от пушек:\nРельса - 20%\nФриз - 50%\n\nПокрытие «Инферно» контрабандой доставляется на рынок из подпольных стеклодувных мастерских Китая. По словам самих производителей, его дерзкий вид символизирует силу, отвагу, удачу и долголетие. Отличная краска для яростной атаки!",
+    "isInventory": false,
+    "index": 95,
+    "type": 3,
+    "name": "Инферно",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 15000,
+    "rank": 15,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "izumurud_m0",
+        "price": 15000,
+        "rank": 15,
+        "properts": [
+          {
+            "property": "mech_resistance",
+            "value": "30"
+          },
+          {
+            "property": "plasma_resistance",
+            "value": "30"
+          },
+          {
+            "property": "thunder_resistance",
+            "value": "40"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "izumurud",
+    "description": "Защита от пушек:\nСмоки - 30%\nТвинс - 30%\nГром - 40%\n\nЛаборатория лакокрасочных материалов «Стиль и гриль» долго работала над покрытием, которое сохранит классические зелёные тона танка и в то же время подчеркнёт высокий статус его владельца. Итогом многолетних трудов стала краска «Изумруд», будто светящаяся изнутри. Подчеркните своё положение!",
+    "isInventory": false,
+    "index": 96,
+    "type": 3,
+    "name": "Изумруд",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 15000,
+    "rank": 15,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "zeus_m0",
+        "price": 15000,
+        "rank": 15,
+        "properts": [
+          {
+            "property": "fire_resistance",
+            "value": "30"
+          },
+          {
+            "property": "vampire_resistance",
+            "value": "35"
+          },
+          {
+            "property": "ricochet_resistance",
+            "value": "40"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "zeus",
+    "description": "Защита от пушек:\nОгнемёт - 30%\nИзида - 35%\nРикошет - 40%\n\nКраска «Зевс» названа так за свою необычную текстуру. Яркие вспышки молний на вашем танке ослабят бдительность вражеских танков и позволят вам выглядеть круто в любой битве.",
+    "isInventory": false,
+    "index": 97,
+    "type": 3,
+    "name": "Зевс",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 15000,
+    "rank": 15,
+    "count": 0,
+    "discount": 0,
+    "multicounted": false
+  },
+  {
+    "modification": [
+      {
+        "previewId": "nefrit_m0",
+        "price": 15000,
+        "rank": 15,
+        "properts": [
+          {
+            "property": "rail_resistance",
+            "value": "30"
+          },
+          {
+            "property": "shaft_resistance",
+            "value": "40"
+          }
+        ]
+      }
+    ],
+    "modificationID": 0,
+    "id": "nefrit",
+    "description": "Защита от пушек:\nРельса - 25%Шафт - 40%\n\nНапыление из редкого коричневого нефрита обеспечивает этому покрытию прочность хорошей стали. Но если производство металлсодержащих покрытий загрязняет океаны и приводит к вымиранию низколетающих птиц, то краска «Нефрит» с каменной пудрой экологически чиста, как берёзовый сок!",
+    "isInventory": false,
+    "index": 98,
+    "type": 3,
+    "name": "Нефрит",
+    "next_price": 0,
+    "next_rank": 0,
+    "price": 15000,
+    "rank": 15,
     "count": 0,
     "discount": 0,
     "multicounted": false

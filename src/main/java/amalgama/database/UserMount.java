@@ -62,4 +62,13 @@ public class UserMount {
     public void setColorId(String colorId) {
         this.colorId = colorId;
     }
+
+    @Override
+    public String toString() {
+        return "UserMount{" +
+                "weaponId='" + weaponId + '\'' +
+                ", armorId='" + armorId + '\'' +
+                ", colorId='" + colorId + '\'' +
+                '}';
+    }
 }

@@ -4,9 +4,11 @@ plugins {
 
 jar {
     manifest {
-        attributes(
-                'Main-Class': 'amalgama.Main'
-        )
+        attributes 'Main-Class': 'amalgama.Main'
+    }
+    duplicatesStrategy = 'exclude'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 

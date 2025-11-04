@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <battles>
-    <battle name="Уровень 0" map="map_sandbox_winter" type="DM" max="8" min-rank="1" max-rank="6" max-score="20" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Recruit" map="map_sandbox" type="DM" max="8" min-rank="1" max-rank="6" max-score="20" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Beginner" map="map_industrial_zone" type="DM" max="12" min-rank="5" max-rank="10" max-score="40" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Medium" map="map_polygon" type="DM" max="16" min-rank="8" max-rank="14" max-score="70" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Expert" map="map_chornobyl" type="DM" max="12" min-rank="12" max-rank="18" max-score="100" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Veteran" map="map_silence_2_evening" type="DM" max="20" min-rank="16" max-rank="21" max-score="150" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Legendary" map="map_stadium" type="DM" max="8" min-rank="20" max-rank="27" max-score="200" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="NEW YEAR - 2026" map="map_rio_night" type="DM" max="8" min-rank="2" max-rank="27" max-score="100" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
+    <battle name="Ravine" map="map_combe" type="DM" max="8" min-rank="13" max-rank="20" max-score="80" time="0" auto-balance="false" ff="false" paid="false" no-bonus="false" />
 </battles>

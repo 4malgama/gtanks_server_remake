@@ -23,4 +23,12 @@ public class Tank {
         this.weapon = WeaponFactory.getWeapon(this);
         this.spawnState = SpawnState.STATE_DEAD;
     }
+
+    @Override
+    public String toString() {
+        return "Tank{" +
+                "nickname='" + nickname + '\'' +
+                ", mount=" + mount +
+                '}';
+    }
 }

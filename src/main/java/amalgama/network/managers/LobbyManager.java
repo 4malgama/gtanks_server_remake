@@ -12,6 +12,7 @@ import amalgama.utils.FileUtils;
 import amalgama.utils.RandomUtils;
 import amalgama.utils.RankUtils;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.json.simple.JSONObject;
 
 import java.io.IOException;
 import java.util.*;
@@ -163,6 +164,48 @@ public class LobbyManager {
                 addScore(net, value);
             } catch (Exception ignored) {}
         }
+        else if (args[0].equalsIgnoreCase("give") && args.length >= 2) {
+            if (args[1].isEmpty())
+                return;
+            try {
+                String itemId = args[1];
+                int count = (args.length == 3 ? Integer.parseInt(args[2]) : 1);
+                GarageManager.addItem(net.client.userData, itemId, count);
+                for (var item : Global.garageItems) {
+                    if (item.id.equals(itemId.substring(0, itemId.length() - 3))) {
+                        JSONObject json = new JSONObject();
+                        json.put("count", count);
+                        json.put("addable", item.type == 4);
+                        json.put("multicounted", item.type == 4);
+                        net.send(Type.GARAGE, "buy_item", itemId, json.toJSONString());
+                        break;
+                    }
+                }
+            } catch (Exception ignored) {}
+        }
+        else if (args[0].equalsIgnoreCase("clear")) {
+            TransferProtocol.broadcast("lobby", Type.LOBBY_CHAT, "clear_all");
+        }
+        else if (args[0].equalsIgnoreCase("clearby") && args.length == 2) {
+            if (args[1].isEmpty())
+                return;
+            TransferProtocol.broadcast("lobby", Type.LOBBY_CHAT, "clean_by", args[1]);
+        }
+        else if (args[0].equalsIgnoreCase("cleartext") && args.length == 2) {
+            if (args[1].isEmpty())
+                return;
+            TransferProtocol.broadcast("lobby", Type.LOBBY_CHAT, "clean_by_text", args[1]);
+        }
+        else if (args[0].equalsIgnoreCase("green") && args.length == 2) {
+            if (args[1].isEmpty())
+                return;
+            TransferProtocol.broadcast("lobby", Type.LOBBY_CHAT, "system", args[1], "green");
+        }
+        else if (args[0].equalsIgnoreCase("yellow") && args.length == 2) {
+            if (args[1].isEmpty())
+                return;
+            TransferProtocol.broadcast("lobby", Type.LOBBY_CHAT, "system", args[1], "yellow");
+        }
     }
 
     public static void addScore(TransferProtocol net, int score) {
@@ -178,3 +221,8 @@ public class LobbyManager {
         UserDAO.updateUser(net.client.userData);
     }
 }
+
+//lobby_chat;system;message;yellow/green
+//lobby_chat;clear_all
+//lobby_chat;clean_by;name
+//lobby_chat;clean_by_text;text

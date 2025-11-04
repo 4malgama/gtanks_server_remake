@@ -9,15 +9,9 @@ import java.util.List;
 
 @XmlRootElement(name = "map")
 public class MapModel {
-
     private SpawnPointModel spawnPoints;
-
-
     private BonusRegionsModel bonusRegions;
-
-
     private FlagPositionsModel flagPositions;
-
     public SpawnPointModel getSpawnPoints() {
         return this.spawnPoints;
     }

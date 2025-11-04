@@ -208,28 +208,43 @@ public class LobbyHandler extends Handler {
                 String battleId = command.args[2];
                 Battle battle = Global.battles.get(battleId);
                 String team = command.args[3].equals("true") ? "RED" : "BLUE";
+                boolean isRed = team.equals("RED");
                 if (battle == null) {
                     net.vrs.registerAct("attempt_enter_unknown_battle", Grade.DETRIMENTAL);
                     return;
                 }
-                int rank = RankUtils.getRankFromScore(net.client.userData.getScore());
-                if (battle.minRank > rank || rank > battle.maxRank || battle.users.size() >= battle.maxPeople) {
+
+                if (!canEnterTeamBattle(net, battle, isRed)) {
                     net.vrs.registerAct("attempt_enter_unavailable_battle", Grade.SUSPICIOUS);
                     return;
                 }
+
                 if (battle.autoBalance) {
-                    if (team.equals("RED") && battle.redPeople > battle.bluePeople)
+                    if (isRed && battle.redPeople > battle.bluePeople) {
+                        net.vrs.registerAct("attempt_enter_full_team", Grade.SUSPICIOUS);
                         return;
-                    if (team.equals("BLUE") && battle.redPeople < battle.bluePeople)
+                    }
+                    if (!isRed && battle.redPeople < battle.bluePeople) {
+                        net.vrs.registerAct("attempt_enter_full_team", Grade.SUSPICIOUS);
                         return;
+                    }
                 }
-                if (battle.redPeople >= battle.maxPeople || battle.bluePeople >= battle.maxPeople)
-                    return;
+
                 if (net.client.currentBattleId != null) return;
                 battle.service.addPlayer(net, team);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    boolean canEnterTeamBattle(TransferProtocol net, Battle battle, boolean red) {
+        if (battle == null)
+            return false;
+
+        int rank = RankUtils.getRankFromScore(net.client.userData.getScore());
+        boolean goodRank = rank >= battle.minRank && rank <= battle.maxRank;
+
+        return goodRank && (red ? battle.redPeople : battle.bluePeople) < battle.maxPeople;
     }
 }

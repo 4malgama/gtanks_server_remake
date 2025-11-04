@@ -3,6 +3,7 @@ package amalgama.lobby;
 import amalgama.Global;
 import amalgama.MapLoader;
 import amalgama.battle.*;
+import amalgama.battle.weapons.*;
 import amalgama.database.UserItem;
 import amalgama.database.UserMount;
 import amalgama.database.dao.UserItemDAO;
@@ -12,6 +13,7 @@ import amalgama.models.MapPointModel;
 import amalgama.models.SpawnPositionModel;
 import amalgama.models.TurretModificationModel;
 import amalgama.network.Type;
+import amalgama.network.managers.LobbyManager;
 import amalgama.network.netty.TransferProtocol;
 import amalgama.network.secure.Grade;
 import amalgama.system.quartz.IQuartzService;
@@ -80,7 +82,7 @@ public class BattleController implements Destroyable {
         var listNitro = getBonusRegions(bonuses, BonusType.NITRO);
 
         this.map = new StructMap(map, listDM, listRED, listBLUE, listGolds, listCrystals, listHP, listDA, listDD, listNitro);
-        System.out.println("[BATTLE] StructMap loaded.");
+        //System.out.println("[BATTLE] StructMap loaded.");
     }
 
     private static ArrayList<BonusRegion> getBonusRegions(List<BonusRegionModel> bonuses, BonusType bType) {
@@ -543,25 +545,92 @@ public class BattleController implements Destroyable {
 
     public void fire(TransferProtocol net, String fireJson) throws ParseException {
         BattlePlayerController ply = players.get(net.client.userData.getLogin());
+
         if (ply == null || ply.tank == null || ply.tank.weapon == null)
             return;
 
         JSONObject fireData = (JSONObject) new JSONParser().parse(fireJson);
         broadcast(Type.BATTLE, "fire", ply.tank.nickname, fireJson);
 
-        String targetId = (String) fireData.get("victimId");
-        if (targetId == null || targetId.equalsIgnoreCase("null"))
-            return;
-        if (!players.containsKey(targetId))
-            return;
+        processFire(net, ply, fireData);
+    }
 
-        BattlePlayerController target = players.get(targetId);
-        if (ply.tank.spawnState != SpawnState.STATE_ACTIVE) {
-            net.vrs.registerAct("shooting_inactive_state", Grade.DANGEROUS);
-            return;
+    private void processFire(TransferProtocol net, BattlePlayerController ply, JSONObject fireData) {
+        String[] targets = ply.tank.weapon.getTargets(fireData);
+
+        if (ply.tank.weapon instanceof SmokyWeapon) {
+            if (targets != null && targets.length == 1)
+                _hit(net, targets[0], ply);
         }
-        if (target.tank.spawnState != SpawnState.STATE_ACTIVE)
-            return;
+        else if (ply.tank.weapon instanceof FlamethrowerWeapon || ply.tank.weapon instanceof FlamethrowerHWWeapon) {
+            if (targets != null)
+                for (String t : targets)
+                    _hit(net, t, ply);
+        }
+        else if (ply.tank.weapon instanceof TwinsWeapon) {
+            if (targets != null && targets.length == 1)
+                _hit(net, targets[0], ply);
+        }
+        else if (ply.tank.weapon instanceof RailgunWeapon) {
+            if (targets != null)
+                for (String t : targets)
+                    _hit(net, t, ply);
+        }
+        else if (ply.tank.weapon instanceof IsidaWeapon) {
+            if (targets == null)
+                return;
+
+            BattlePlayerController target = getValidTarget(net, targets[0], ply);
+            if (target == null)
+                return;
+
+            if (battle.isTeam) {
+                BattleUser uTarget = battle.users.get(target.tank.nickname);
+                BattleUser uAttacker = battle.users.get(ply.tank.nickname);
+                assert uTarget != null && uAttacker != null : "Users not found in team";
+                if (uTarget.team.equals(uAttacker.team)) {
+                    killService.healTank(ply, target);
+                    LobbyManager.addScore(net, 5);
+                    return;
+                }
+            }
+
+            killService.hitTank(ply, target);
+            killService.healTank(ply, ply);
+        }
+        else if (ply.tank.weapon instanceof ThunderWeapon) {
+            if (targets != null && targets.length == 1) {
+                _hit(net, targets[0], ply);
+            }
+
+            Map<String, Double> splashTargets = ((ThunderWeapon) ply.tank.weapon).getSplashTargets(fireData);
+            if (splashTargets != null && !splashTargets.isEmpty()) {
+                if (battle.isTeam && !battle.ff) {
+                    for (Map.Entry<String, Double> e : splashTargets.entrySet()) {
+                        BattlePlayerController _t = getValidTarget(net, e.getKey(), ply);
+                        if (_t == null) continue;
+                        BattleUser uTarget = battle.users.get(e.getKey());
+                        BattleUser uAttacker = battle.users.get(ply.tank.nickname);
+                        assert uTarget != null && uAttacker != null : "Users not found in team";
+                        if (uTarget.team.equals(uAttacker.team))
+                            continue;
+                        killService.hitTank(ply, _t, (float) Math.max((1.0 - Math.abs(e.getValue()) * 0.1), 0.1));
+                    }
+                } else {
+                    for (Map.Entry<String, Double> e : splashTargets.entrySet()) {
+                        BattlePlayerController _t = getValidTarget(net, e.getKey(), ply);
+                        if (_t == null) continue;
+                        killService.hitTank(ply, _t, (float) Math.max((1.0 - Math.abs(e.getValue()) * 0.1), 0.1));
+                    }
+                }
+            }
+        }
+    }
+
+    private void _hit(TransferProtocol net, String targetId, BattlePlayerController ply) {
+        BattlePlayerController target = getValidTarget(net, targetId, ply);
+        if (target == null) return;
+
         if (battle.isTeam && !battle.ff) {
             BattleUser uTarget = battle.users.get(target.tank.nickname);
             BattleUser uAttacker = battle.users.get(ply.tank.nickname);
@@ -571,6 +640,22 @@ public class BattleController implements Destroyable {
         }
 
         killService.hitTank(ply, target);
+    }
+
+    private BattlePlayerController getValidTarget(TransferProtocol net, String targetId, BattlePlayerController ply) {
+        if (!players.containsKey(targetId))
+            return null;
+
+        BattlePlayerController target = players.get(targetId);
+        if (ply.tank.spawnState != SpawnState.STATE_ACTIVE) {
+            net.vrs.registerAct("shooting_inactive_state", Grade.DANGEROUS);
+            return null;
+        }
+
+        if (target.tank.spawnState != SpawnState.STATE_ACTIVE)
+            return null;
+
+        return target;
     }
 
     public void updateFund() {
@@ -673,6 +758,66 @@ public class BattleController implements Destroyable {
                     return;
                 bonusAllocator.allocBonus(count, type);
             } catch (NumberFormatException ignored) {}
+        }
+    }
+
+    public void startFire(TransferProtocol net, String data) {
+        BattlePlayerController ply = players.get(net.client.userData.getLogin());
+        if (ply == null || ply.tank == null)
+            return;
+
+        BattleUser user = battle.users.get(ply.tank.nickname);
+        if (user == null)
+            return;
+
+        //flamethrower
+        if (ply.tank.weapon instanceof FlamethrowerWeapon || ply.tank.weapon instanceof FlamethrowerHWWeapon) {
+            if (ply.tank.fireStarted)
+                return;
+
+            ply.tank.fireStarted = true;
+            if (data == null)
+                broadcast(Type.BATTLE, "start_fire", user.nickname);
+            else
+                broadcast(Type.BATTLE, "start_fire", user.nickname, data);
+        }
+        else if (ply.tank.weapon instanceof RailgunWeapon) {
+            if (data == null) broadcast(Type.BATTLE, "start_fire", user.nickname);
+            else broadcast(Type.BATTLE, "start_fire", user.nickname, data);
+        }
+        else if (ply.tank.weapon instanceof TwinsWeapon) {
+            broadcast(Type.BATTLE, "start_fire_twins", user.nickname, data);
+        }
+        else if (ply.tank.weapon instanceof IsidaWeapon) {
+            if (ply.tank.fireStarted)
+                return;
+            JSONParser parser = new JSONParser();
+            try {
+                JSONObject json = (JSONObject) parser.parse(data);
+                String victim = (String) json.get("victimId");
+                ply.tank.fireStarted = true;
+
+                BattleUser victimUser = battle.users.get(victim);
+                String type = victimUser == null ? "idle" : ((battle.isTeam && victimUser.team.equals(user.team)) ? "heal" : "damage");
+
+                JSONObject obj = new JSONObject();
+                obj.put("shooterId", ply.tank.nickname);
+                obj.put("targetId", victim);
+                obj.put("type", type);
+
+                broadcast(Type.BATTLE, "start_fire", user.nickname, obj.toJSONString());
+            } catch (ParseException ignored) {}
+        }
+    }
+
+    public void stopFire(TransferProtocol net) {
+        BattlePlayerController ply = players.get(net.client.userData.getLogin());
+        if (ply == null || ply.tank == null)
+            return;
+
+        if (ply.tank.fireStarted) {
+            ply.tank.fireStarted = false;
+            broadcast(Type.BATTLE, "stop_fire", ply.tank.nickname);
         }
     }
 }

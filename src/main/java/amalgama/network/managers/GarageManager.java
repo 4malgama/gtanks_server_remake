@@ -64,7 +64,7 @@ public class GarageManager {
         return -2;
     }
 
-    private static void addItem(User user, String itemId, int count) {
+    public static void addItem(User user, String itemId, int count) {
         List<UserItem> items = UserItemDAO.getUserItems(user);
         for (var item : items) {
             if (item.getItemId().equals(itemId)) {
