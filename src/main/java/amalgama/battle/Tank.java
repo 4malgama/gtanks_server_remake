@@ -12,6 +12,7 @@ public class Tank {
     public final Weapon weapon;
     public SpawnState spawnState;
     public int health;
+    public int temperature;
     public UserMount mount;
     public boolean fireStarted = false;
 
@@ -22,6 +23,7 @@ public class Tank {
         this.mount = mount;
         this.weapon = WeaponFactory.getWeapon(this);
         this.spawnState = SpawnState.STATE_DEAD;
+        this.temperature = 0;
     }
 
     @Override

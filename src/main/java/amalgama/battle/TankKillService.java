@@ -17,6 +17,7 @@ import java.math.MathContext;
 public class TankKillService implements Destroyable {
     private static final String QUARTZ_GROUP = TankKillService.class.getName();
     private static final int fundIncrement = 2;
+    private static final long UPDATE_TEMPERATURES_DELAY = 2000L;
     private final String QUARTZ_NAME;
     private static final long DELAY_BEFORE_RESTART = 10000L;
     private final BattleController bfService;
@@ -25,6 +26,7 @@ public class TankKillService implements Destroyable {
     public TankKillService(BattleController bfService) {
         this.bfService = bfService;
         QUARTZ_NAME = "TankKillService/" + hashCode() + "/" + this.bfService.battle.id;
+        quartzService.addJobInterval(QUARTZ_NAME + "/TemperatureUpdater", QUARTZ_GROUP, e -> this.updateTemperaturesOfTanks(), TimeUnit.MILLISECONDS, UPDATE_TEMPERATURES_DELAY);
     }
 
     public void restartBattle(boolean byTimeout) {
@@ -143,5 +145,40 @@ public class TankKillService implements Destroyable {
         giveDamage(target, damage);
         if (target.tank.health <= 0)
             killTank(target, attacker);
+    }
+
+    public void freezeTank(BattlePlayerController target, int temperature) {
+        target.tank.temperature -= temperature;
+
+        JSONObject json = new JSONObject();
+        json.put("speed", target.tank.hull.speed * .25);
+        json.put("turnSpeed", target.tank.hull.turn_speed * .25);
+        json.put("turretRotationSpeed", target.tank.turret.turretRotationSpeed * .25);
+        json.put("immediate", false);
+
+        bfService.broadcast(Type.BATTLE, "change_spec_tank", target.tank.nickname, json.toJSONString());
+        bfService.broadcast(Type.BATTLE, "change_temperature_tank", target.tank.nickname, target.tank.temperature + ".0");
+    }
+
+    public void resetTemperature(BattlePlayerController target, boolean fast) {
+        target.tank.temperature = 0;
+        JSONObject json = new JSONObject();
+        json.put("speed", target.tank.hull.speed);
+        json.put("turnSpeed", target.tank.hull.turn_speed);
+        json.put("turretRotationSpeed", target.tank.turret.turretRotationSpeed);
+        json.put("immediate", fast);
+
+        bfService.broadcast(Type.BATTLE, "change_spec_tank", target.tank.nickname, json.toJSONString());
+        bfService.broadcast(Type.BATTLE, "change_temperature_tank", target.tank.nickname, "0.0");
+    }
+
+    public void updateTemperaturesOfTanks() {
+        for (BattlePlayerController ply : bfService.players.values()) {
+            if (ply.tank == null)
+                continue;
+            if (ply.tank.temperature != 0) {
+                resetTemperature(ply, false);
+            }
+        }
     }
 }

@@ -19,6 +19,8 @@ public class WeaponFactory {
             return new IsidaWeapon(attacker);
         else if (attacker.mount.getWeaponId().startsWith("thunder_m"))
             return new ThunderWeapon(attacker);
+        else if (attacker.mount.getWeaponId().startsWith("frezee_m"))
+            return new FreezeWeapon(attacker);
         return null;
     }
 }

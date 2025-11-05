@@ -625,6 +625,32 @@ public class BattleController implements Destroyable {
                 }
             }
         }
+        else if (ply.tank.weapon instanceof FreezeWeapon) {
+            if (targets != null) {
+                if (battle.isTeam && !battle.ff) {
+                    for (String t : targets) {
+                        BattlePlayerController _t = getValidTarget(net, t, ply);
+                        if (_t == null) continue;
+                        BattleUser uTarget = battle.users.get(_t.tank.nickname);
+                        BattleUser uAttacker = battle.users.get(ply.tank.nickname);
+                        assert uTarget != null && uAttacker != null : "Users not found in team";
+                        if (uTarget.team.equals(uAttacker.team))
+                            continue;
+
+                        killService.hitTank(ply, _t);
+                        killService.freezeTank(_t, FreezeWeapon.FREEZE_TEMPERATURE);
+                    }
+                } else {
+                    for (String t : targets) {
+                        BattlePlayerController _t = getValidTarget(net, t, ply);
+                        if (_t == null) continue;
+
+                        killService.hitTank(ply, _t);
+                        killService.freezeTank(_t, FreezeWeapon.FREEZE_TEMPERATURE);
+                    }
+                }
+            }
+        }
     }
 
     private void _hit(TransferProtocol net, String targetId, BattlePlayerController ply) {
@@ -770,8 +796,7 @@ public class BattleController implements Destroyable {
         if (user == null)
             return;
 
-        //flamethrower
-        if (ply.tank.weapon instanceof FlamethrowerWeapon || ply.tank.weapon instanceof FlamethrowerHWWeapon) {
+        if (ply.tank.weapon instanceof FlamethrowerWeapon || ply.tank.weapon instanceof FlamethrowerHWWeapon || ply.tank.weapon instanceof FreezeWeapon) {
             if (ply.tank.fireStarted)
                 return;
 
