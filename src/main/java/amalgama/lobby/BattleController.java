@@ -550,7 +550,9 @@ public class BattleController implements Destroyable {
             return;
 
         JSONObject fireData = (JSONObject) new JSONParser().parse(fireJson);
-        broadcast(Type.BATTLE, "fire", ply.tank.nickname, fireJson);
+
+        if (ply.tank.weapon instanceof RicochetWeapon) broadcast(Type.BATTLE, "fire_ricochet", ply.tank.nickname, fireJson);
+        else broadcast(Type.BATTLE, "fire", ply.tank.nickname, fireJson);
 
         processFire(net, ply, fireData);
     }
@@ -558,7 +560,7 @@ public class BattleController implements Destroyable {
     private void processFire(TransferProtocol net, BattlePlayerController ply, JSONObject fireData) {
         String[] targets = ply.tank.weapon.getTargets(fireData);
 
-        if (ply.tank.weapon instanceof SmokyWeapon) {
+        if (ply.tank.weapon instanceof SmokyWeapon || ply.tank.weapon instanceof RicochetWeapon) {
             if (targets != null && targets.length == 1)
                 _hit(net, targets[0], ply);
         }
@@ -571,7 +573,7 @@ public class BattleController implements Destroyable {
             if (targets != null && targets.length == 1)
                 _hit(net, targets[0], ply);
         }
-        else if (ply.tank.weapon instanceof RailgunWeapon) {
+        else if (ply.tank.weapon instanceof RailgunWeapon || ply.tank.weapon instanceof ShaftWeapon) {
             if (targets != null)
                 for (String t : targets)
                     _hit(net, t, ply);
@@ -811,7 +813,8 @@ public class BattleController implements Destroyable {
             else broadcast(Type.BATTLE, "start_fire", user.nickname, data);
         }
         else if (ply.tank.weapon instanceof TwinsWeapon) {
-            broadcast(Type.BATTLE, "start_fire_twins", user.nickname, data);
+            if (data != null)
+                broadcast(Type.BATTLE, "start_fire_twins", user.nickname, data);
         }
         else if (ply.tank.weapon instanceof IsidaWeapon) {
             if (ply.tank.fireStarted)
@@ -833,6 +836,14 @@ public class BattleController implements Destroyable {
                 broadcast(Type.BATTLE, "start_fire", user.nickname, obj.toJSONString());
             } catch (ParseException ignored) {}
         }
+        else if (ply.tank.weapon instanceof RicochetWeapon) {
+            if (data != null) {
+                broadcast(Type.BATTLE, "start_fire", user.nickname, data);
+            }
+        }
+        else if (ply.tank.weapon instanceof ShaftWeapon) {
+            broadcast(Type.BATTLE, "start_fire", user.nickname);
+        }
     }
 
     public void stopFire(TransferProtocol net) {
@@ -844,5 +855,18 @@ public class BattleController implements Destroyable {
             ply.tank.fireStarted = false;
             broadcast(Type.BATTLE, "stop_fire", ply.tank.nickname);
         }
+    }
+
+    public void quickShotShaft(TransferProtocol net, String arg) throws ParseException {
+        BattlePlayerController ply = players.get(net.client.userData.getLogin());
+
+        if (ply == null || ply.tank == null || ply.tank.weapon == null)
+            return;
+
+        JSONObject fireData = (JSONObject) new JSONParser().parse(arg);
+
+        broadcast(Type.BATTLE, "shaft_quick_shot", ply.tank.nickname, arg);
+
+        processFire(net, ply, fireData);
     }
 }

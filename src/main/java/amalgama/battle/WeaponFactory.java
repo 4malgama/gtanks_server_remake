@@ -21,6 +21,10 @@ public class WeaponFactory {
             return new ThunderWeapon(attacker);
         else if (attacker.mount.getWeaponId().startsWith("frezee_m"))
             return new FreezeWeapon(attacker);
+        else if (attacker.mount.getWeaponId().startsWith("ricochet_m"))
+            return new RicochetWeapon(attacker);
+        else if (attacker.mount.getWeaponId().startsWith("shaft_m"))
+            return new ShaftWeapon(attacker);
         return null;
     }
 }

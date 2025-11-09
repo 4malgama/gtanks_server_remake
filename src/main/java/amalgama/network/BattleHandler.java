@@ -57,6 +57,11 @@ public class BattleHandler extends Handler {
                 battle.service.fire(net, command.args[2]);
             } catch (Exception e) { e.printStackTrace(); }
         }
+        else if (command.args[1].equals("quick_shot_shaft")) {
+            try {
+                battle.service.quickShotShaft(net, command.args[2]);
+            } catch (Exception e) { e.printStackTrace(); }
+        }
         else if (command.args[1].equals("start_fire")) {
             battle.service.startFire(net, command.args.length > 2 ? command.args[2] : null);
         }

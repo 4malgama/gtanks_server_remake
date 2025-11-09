@@ -99,6 +99,19 @@
 			
 			"max_damage_radius": 100.0,
 			"min_damage_radius": 50.0,
-			"min_damage_percent": 20.0 
+			"min_damage_percent": 20.0,
+
+			"max_energy": 1000.0,
+			"charge_rate": 10,
+			"discharge_rate": 16,
+			"elevation_angle_up": 0.157080,
+			"elevation_angle_down": 0.209440,
+			"vertical_targeting_speed": 20.0,
+			"horizontal_targeting_speed": 30.0,
+			"inital_fov": 10,
+			"minimum_fov": 10,
+			"shrubs_hiding_radius_min": 10.0,
+			"shrubs_hiding_radius_max": 10.0,
+			"impact_quick_shot": 1.2
 		}
 ]

@@ -1,6 +1,7 @@
 package amalgama.network.netty;
 
 import amalgama.Global;
+import amalgama.lobby.Battle;
 import amalgama.network.*;
 import amalgama.network.secure.Grade;
 import amalgama.network.secure.ViolRegService;
@@ -72,6 +73,10 @@ public class TransferProtocol {
     }
 
     public void onDisconnect() {
+        if (client.currentBattleId != null) {
+            Battle battle = Global.battles.get(client.currentBattleId);
+            if (battle != null) battle.service.removeUser(this);
+        }
         Global.clients.remove(client.userData.getLogin());
     }
 
